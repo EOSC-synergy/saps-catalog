@@ -14,4 +14,5 @@ sqa_criteria:
        saps-catalog:
          container: catalog-testing
          commands:
+           - mvn -f /saps-common-repo/pom.xml -B -DskipTests clean package
            - mvn -f /saps-catalog-repo/pom.xml checkstyle:checkstyle
