@@ -1,0 +1,17 @@
+# .sqa/config.yml - jenkins-pipeline-library configuration file
+config:
+  project_repos:
+    saps-common:
+      repo: 'https://github.com/EOSC-synergy/saps-common'
+      branch: develop
+    saps-catalog:
+      repo: 'https://github.com/EOSC-synergy/saps-catalog'
+      branch: develop
+
+sqa_criteria:
+   qc_style:
+     repos:
+       saps-catalog:
+         container: catalog-testing
+         commands:
+           - mvn -f /saps-catalog-repo/pom.xml checkstyle:checkstyle
