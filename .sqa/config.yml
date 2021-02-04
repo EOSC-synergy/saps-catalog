@@ -16,3 +16,11 @@ sqa_criteria:
          commands:
            - mvn -f /saps-common-repo/pom.xml install
            - mvn -f /saps-catalog-repo/pom.xml checkstyle:checkstyle
+ 
+   qc_coverage:
+     repos:
+       saps-catalog:
+         container: catalog-testing
+         commands:
+           - mvn -f /saps-catalog-repo/pom.xml -B -DskipTests clean package
+           - mvn -f /saps-catalog-repo/pom.xml test
