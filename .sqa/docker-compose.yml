@@ -13,3 +13,13 @@ services:
        source: ./saps-common
        target: /saps-common-repo
     command: sleep 3600
+   
+  catalog-docs:
+    image: "sphinxdoc/sphinx"
+    container_name: catalog-docs
+    hostname: catalog-docs
+    volumes:
+     - type: bind
+       source: ./saps-catalog
+       target: /saps-catalog-repo
+    command: sleep 3600
