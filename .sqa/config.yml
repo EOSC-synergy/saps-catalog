@@ -24,3 +24,11 @@ sqa_criteria:
          commands:
            - mvn -f /saps-catalog-repo/pom.xml -B -DskipTests clean package
            - mvn -f /saps-catalog-repo/pom.xml test
+           
+   qc_doc:
+     repos:
+       saps-catalog:
+         container: catalog-docs
+         commands:
+           - pip install recommonmark
+           - make html -C /saps-catalog-repo/docs/
