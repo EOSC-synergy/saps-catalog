@@ -14,8 +14,8 @@ sqa_criteria:
        saps-catalog:
          container: catalog-testing
          commands:
-           - mvn -f /saps-common-repo/pom.xml install
-           - mvn -f /saps-catalog-repo/pom.xml checkstyle:checkstyle
+           - mvn -f /saps-common-repo/pom.xml -DskipTests install
+           - mvn -f /saps-catalog-repo/pom.xml spotless:check
  
    qc_coverage:
      repos:
@@ -32,3 +32,10 @@ sqa_criteria:
          commands:
            - pip install recommonmark
            - make html -C /saps-catalog-repo/docs/
+
+   qc_security:
+     repos:
+       saps-catalog:
+         container: catalog-testing
+         commands:
+           - mvn -f /saps-catalog-repo/pom.xml -B -DskipTests clean package com.github.spotbugs:spotbugs-maven-plugin:check
